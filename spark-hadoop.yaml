@@ -1,0 +1,24 @@
+version: "3"
+services:
+  master:
+    hostname: master
+    container_name: master
+    image: wuchenlhy/jupyter_spark_hadoop:lastest
+    ports:
+      - "8888:8888"
+      - "8088:8088"
+      - "8080:8080"
+      - "9870:9870"
+    volumes:
+      - ./data:/data/
+    depends_on:
+      - slave1
+    command: ["sh", "/opt/docker/master-startup.sh"]
+
+  slave1:
+    hostname: slave1
+    container_name: slave1
+    image: wuchenlhy/jupyter_spark_hadoop:lastest
+    volumes:
+      - ./data/data:/data/
+    command: ["sh", "/opt/docker/slave-startup.sh"]
