@@ -3,7 +3,7 @@ services:
   master:
     hostname: master
     container_name: master
-    image: wuchenlhy/jupyter_spark_hadoop:lastest
+    image: wuchenlhy/jupyter_spark_hadoop
     ports:
       - "8888:8888"
       - "8088:8088"
